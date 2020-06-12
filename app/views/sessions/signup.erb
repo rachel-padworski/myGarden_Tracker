@@ -1,0 +1,16 @@
+<h3>Sign Up</h3>
+
+<% if @gardener && @gardener.errors.any? %>
+    <% @gardener.errors.full_messages.each do |m| %>
+        <p class='danger'><%= m %></p>
+    <% end %>
+<% end %>
+
+<form action='/signup' method='POST'>
+    <input type='text' placeholder='Name' name='name'>
+    <input type='text' placeholder='Username' name='username'>
+    <input type='password' placeholder='Password' name='password'>
+    <input type='submit' value='Sign Up'>
+</form>
+
+<a href='/login'>Log In</a>
