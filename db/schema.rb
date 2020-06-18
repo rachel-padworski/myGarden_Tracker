@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_06_11_223049) do
 
-  create_table "gardeners", force: :cascade do |t|
-    t.string "name"
-    t.string "username"
-    t.string "password_digest"
-  end
-
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -26,6 +20,12 @@ ActiveRecord::Schema.define(version: 2020_06_11_223049) do
     t.string "harvest"
     t.string "location"
     t.integer "gardener_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.string "password_digest"
   end
 
 end

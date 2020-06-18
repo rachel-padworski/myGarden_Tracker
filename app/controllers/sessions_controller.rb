@@ -5,24 +5,24 @@ class SessionsController < ApplicationController
     end
 
     get '/signup' do
-        erb :'sessions/signup'
+            erb :'sessions/signup'
     end
 
     post '/signup' do
-        @gardener = Gardener.new(name: params[:name], username: params[:username], password: params[:password])
-        if @gardener.save
-            session[:user_id] = @gardener.id 
-            redirect '/index'
+        @user = User.new(name: params[:name], username: params[:username], password: params[:password])
+        if @user.save
+            session[:user_id] = @user.id 
+            redirect '/dashboard'
         else
             erb :'sessions/signup'
         end
     end
 
     post '/login' do
-        gardener = Gardener.find_by(username: params[:username])
-        if gardener && u.authenticate(params[:password])
-            session[:uder_id] = gardener.id
-            redirect '/index'
+        user = User.find_by(username: params[:username])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect '/dashboard'
         else
             @error = "Invalid credentials"
             erb :'sessions/login'

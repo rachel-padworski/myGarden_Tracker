@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <h1>Update Your User Profile</h1>
+    
+    <h2>Edits for <%= @user.name %></h2>
+
+    <form action='/users/<%=@user.id%>' method='POST'>
+        <input id='hidden' type='hidden' name='_method' value='patch'>
+        
+        <br>
+
+        <label for='user_name'>Edit User's Name: </label>
+        <input type='text' name='user_name' id='user_name' value='<%= @user.name %>'>
+        
+        <br>
+        <input type='submit' id='submit' value='Submit'>
+    </form>
+        
+
+</body>
+</html>

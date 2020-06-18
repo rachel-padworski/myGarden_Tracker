@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>What would you like to do?</h1>
+    <form action='/dashboard' method='post'></form>
+    <a href='/plants/new'><h3>Add a new plant</h3></a>
+    <a href='/plants/show'><h3>View all plants</h3></a>
+    <a href='/plants/<%=@user.id%>/edit'><h3>Edit an existing plant</h3></a>
+    <a href='/users/<%=@user.id%>/edit'><h3>Edit your profile</h3></a>
+
+</body>
+</html>

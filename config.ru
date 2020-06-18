@@ -1,5 +1,6 @@
 require_relative './config/env'
 
-use GardenersController
+use PlantsController
+use UsersController
 use SessionsController
 run ApplicationController
