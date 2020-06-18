@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_223049) do
     t.string "planting_schedule"
     t.string "harvest"
     t.string "location"
-    t.integer "gardener_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

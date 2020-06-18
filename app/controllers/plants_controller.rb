@@ -29,7 +29,7 @@ class PlantsController < ApplicationController
     end
 
     get '/plants/:id' do
-        @plant = Plant.find(params[:id])
+        @plant = Plant.find(params[:user_id])
         erb :'/plants/show'
     end
 

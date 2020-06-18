@@ -7,7 +7,7 @@ class CreatePlants < ActiveRecord::Migration[6.0]
       t.string :planting_schedule
       t.string :harvest
       t.string :location
-      t.integer :gardener_id
+      t.integer :user_id
     end
   end
 end
