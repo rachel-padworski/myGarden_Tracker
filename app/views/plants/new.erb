@@ -1,3 +1,5 @@
+// creates new plant
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
     <title>New Plant</title>
 </head>
 <body>
-    <form action='/plants/new' method='POST'>
+    <form action='/plants' method='POST'>
         <label for='name'>Plant Name</label>
         <input type='text' id='name' name='name' placeholder='Plant Name'>
         <br><br>
@@ -24,9 +26,6 @@
         <br><br>
         <label for='location'>Plant Location</label>
         <input type='text' id='location' name='location' placeholder='Location'>
-        <br><br>
-        <label for='user_id'>User ID Number</label>
-        <input type='integer' id='user_id' name='user_id' placeholder='User ID'>
         <br><br>
         <input type='submit' id='submit' name='submit' value='Submit'>
 

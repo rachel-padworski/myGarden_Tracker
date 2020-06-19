@@ -9,9 +9,15 @@
     <h1>What would you like to do?</h1>
     <form action='/dashboard' method='post'></form>
     <a href='/plants/new'><h3>Add a new plant</h3></a>
-    <a href='/plants/show'><h3>View all plants</h3></a>
+    <a href='/plants'><h3>View all plants</h3></a>
     <a href='/plants/<%=@user.id%>/edit'><h3>Edit an existing plant</h3></a>
     <a href='/users/<%=@user.id%>/edit'><h3>Edit your profile</h3></a>
-
+    <a href='/plants/<%=@user.id%>'><h3>Delete a plant</h3></a>
+    
+    <form action="/logout" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Logout">
+    </form>
+    
 </body>
 </html>

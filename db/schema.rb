@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_223049) do
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "how_many"
+    t.string "how_many"
     t.string "planting_schedule"
     t.string "harvest"
     t.string "location"

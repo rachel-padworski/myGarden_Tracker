@@ -1,5 +1,4 @@
-#need to add in a list of all plants with checkboxes.
-#User can select a plant to edit.
+// edits a plant
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,41 +12,43 @@
     
     <h2>Edits for <%= @user.name %>'s plants</h2>
 
-    <form action='/plants/<%=@user.id%>' method='POST'>
+    <form action='/plants/<%= @plant.id %>' method='POST'>
         <input id='hidden' type='hidden' name='_method' value='patch'>
         
         <br>
 
-        <label for='plant_name'>Plant Name: </label>
-        <input type='checkbox' name='plant_name' id='plant_name' value='<%= @plant.name %>'>
+        <label for='name'>Plant Name: </label>
+        <input type='text' name='name' id='name' value='<%= @plant.name %>'>
         
         <br>
-        <label for='plant_description'>Plant Description: </label>
-        <input type='checkbox' name='plant_description' id='plant_description' value='<%= @plant.description %>'>
+        <label for='description'>Plant Description: </label>
+        <input type='text' name='description' id='description' value='<%= @plant.description %>'>
         
         <br>
         <label for='how_many'>How Many of Each Plant?: </label>
-        <input type='checkbox' name='how_many' id='how_many' value='<%= @plant.how_many %>'>
+        <input type='text' name='how_many' id='how_many' value='<%= @plant.how_many %>'>
         
         <br>
         <label for='planting_schedule'>Planting Schedule: </label>
-        <input type='checkbox' name='planting_schedule' id='planting_schedule' value='<%= @plant.planting_schedule %>'>
+        <input type='text' name='planting_schedule' id='planting_schedule' value='<%= @plant.planting_schedule %>'>
         
         <br>
         <label for='harvest'>When does this plant need to be harvested?: </label>
-        <input type='checkbox' name='harvest' id='harvest' value='<%= @plant.harvest %>'>
+        <input type='text' name='harvest' id='harvest' value='<%= @plant.harvest %>'>
         
         <br>
         <label for='location'>Where is this plant located?: </label>
-        <input type='checkbox' name='location' id='location' value='<%= @plant.location %>'>
+        <input type='text' name='location' id='location' value='<%= @plant.location %>'>
         
-        <br>
-        <label for='how_many'>How Many of Each Plant?: </label>
-        <input type='checkbox' name='how_many' id='how_many' value='<%= @plant.how_many %>'>
-        
+    
         <br>
 
         <input type='submit' id='submit' value='Submit'>
+    </form>
+
+    <form action='/plants/<%= @plant.id %>' method='POST'>
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="submit" id="submit" value="delete">
     </form>
 </body>
 </html>

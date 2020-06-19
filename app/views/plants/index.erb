@@ -1,11 +1,25 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>All Plants</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <h2>Your Plants</h2>
+    
+        <ul>
+            <% @user.plants.each do |plant| %>
+            <li><%= plant.name %></li>
+            <li><%= plant.description %></li>
+            <li><%= plant.how_many %></li>
+            <li><%= plant.planting_schedule %></li>
+            <li><%= plant.harvest %></li>
+            <li><%= plant.location %></li>
+             <% end %>
+        </ul>
+        <a href="/users/dashboard">Back to Dashboard></a>
 </body>
 </html>

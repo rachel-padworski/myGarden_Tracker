@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     end
 
     get '/signup' do
-            erb :'sessions/signup'
+        erb :'sessions/signup'
     end
 
     post '/signup' do
@@ -29,6 +29,10 @@ class SessionsController < ApplicationController
         end
     end
 
+    delete '/logout' do
+        session.clear
+        redirect "/"
+    end
 
 
 end
