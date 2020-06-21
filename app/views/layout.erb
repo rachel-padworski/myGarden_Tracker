@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>myGarden Tracker</title>
 </head>
 <body>
-    <h1>Welcome to myGarden Tracker</h1>
+    <header>
+        <nav>
+            <%= render_navbar %>
+        </nav>
+    </header>
+    
+    <h1>myGarden Tracker</h1>
+
     <%= yield %>
 </body>
 </html>

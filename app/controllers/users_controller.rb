@@ -16,9 +16,9 @@ class UsersController < ApplicationController
     end
 
     patch '/users/:id' do
-        @user = User.find(params[:id])
+        @user = User.find_by(id: params[:id])
         @user.update(params[:user])
-        redirect "/users/#{@user.id}"
+        redirect "/users/dashboard"
     end
 
    

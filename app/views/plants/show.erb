@@ -1,5 +1,3 @@
-// displays one plant at a time
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +6,20 @@
     <title>Show Plants</title>
 </head>
 <body>
-    <h1><%=@user.name%>'s Plants</h1>
+    <h1><%= @user.name.capitalize %>'s Plants</h1>
+    
     <ul>
         <% @user.plants.each do |plant| %>
-        <li><%= plant.name %></li>
-        <li><%= plant.description %></li>
-        <li><%= plant.how_many %></li>
-        <li><%= plant.planting_schedule %></li>
-        <li><%= plant.harvest %></li>
-        <li><%= plant.location %></li>
+        <h3><%= plant.name.capitalize %></h3>
+        <li>Description: <%= plant.description %></li>
+        <li>Amount: <%= plant.how_many %></li>
+        <li>Planting Schedule: <%= plant.planting_schedule %></li>
+        <li>Harvest: <%= plant.harvest %></li>
+        <li>Location: <%= plant.location %></li>
         <% end %>
     </ul>
-    <a href="/users/dashboard">Back to Dashboard></a>
+    
+    <a href="/dashboard">Back to Dashboard</a>
 
 
 </body>

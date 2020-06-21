@@ -9,17 +9,21 @@
 </head>
 <body>
     <h2>Your Plants</h2>
-    
+        <% if @user.plants.empty? %>
+            <p><%= "There are no plants to display!" %></p>
+        <% end %>
+
         <ul>
             <% @user.plants.each do |plant| %>
-            <li><%= plant.name %></li>
-            <li><%= plant.description %></li>
-            <li><%= plant.how_many %></li>
-            <li><%= plant.planting_schedule %></li>
-            <li><%= plant.harvest %></li>
-            <li><%= plant.location %></li>
-             <% end %>
+            <h3><%= plant.name.capitalize %></h3>
+            <li>Description: <%= plant.description %></li>
+            <li>Amount: <%= plant.how_many %></li>
+            <li>Planting Schedule: <%= plant.planting_schedule %></li>
+            <li>Harvest: <%= plant.harvest %></li>
+            <li>Location: <%= plant.location %></li>
+            <% end %>
         </ul>
-        <a href="/users/dashboard">Back to Dashboard></a>
+        <a href="/dashboard">Back to Dashboard</a>
+
 </body>
 </html>
