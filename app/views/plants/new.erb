@@ -8,25 +8,25 @@
 <body>
     <% if logged_in? %>
     <form action='/plants' method='POST'>
-        <label for='name'>Plant Name</label>
+        <label for='name'>Plant Name: </label>
         <input type='text' id='name' name='name' placeholder='Plant Name'>
         <br><br>
-        <label for='description'>Plant Description</label>
+        <label for='description'>Plant Description: </label>
         <input type='text' id='description' name='description' placeholder='Plant Description'>
         <br><br>
-        <label for='how_many'>How Many Plants?</label>
+        <label for='how_many'>How Many Plants?: </label>
         <input type='integer' id='how_many' name='how_many' placeholder='Amount'>
         <br><br>
-        <label for='planting_schedule'>Planting Schedule</label>
+        <label for='planting_schedule'>Planting Schedule: </label>
         <input type='text' id='planting_schedule' name='planting_schedule' placeholder='Planting Schedule'>
         <br><br>
-        <label for='harvest'>When to Harvest</label>
+        <label for='harvest'>When to Harvest: </label>
         <input type='text' id='harvest' name='harvest' placeholder='Harvest Date'>
         <br><br>
-        <label for='location'>Plant Location</label>
+        <label for='location'>Plant Location: </label>
         <input type='text' id='location' name='location' placeholder='Location'>
         <br><br>
-        <input type='submit' id='submit' name='submit' value='Submit'>
+        <input class='submit-button' type='submit' id='submit' name='submit' value='Submit'>
 
     </form>
     

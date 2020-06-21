@@ -23,7 +23,9 @@
             <li>Location: <%= plant.location %></li>
             <% end %>
         </ul>
-        <a href="/dashboard">Back to Dashboard</a>
+    <form action='/dashboard' method='POST'>
+        <input class='submit-button' type='submit' value="Back to Dashboard">
+    </form> 
 
 </body>
 </html>

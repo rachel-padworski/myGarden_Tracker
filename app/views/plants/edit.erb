@@ -9,7 +9,6 @@
     <% if logged_in? %>
         <h1>Edit a Plant</h1>
         
-        <h2>Edits for <%= @plant.name %></h2>
 
         <form action='/plants/<%= @plant.id %>' method='POST'>
             <input id='hidden' type='hidden' name='_method' value='patch'>

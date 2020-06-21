@@ -3,8 +3,8 @@ class PlantsController < ApplicationController
     # gets all plants
     get '/plants' do 
         authenticate
-        @plant = current_user
-        @plants = Plant.all
+        @user = current_user
+        @plant = Plant.all
         erb :'plants/index'
     end
 
@@ -21,13 +21,10 @@ class PlantsController < ApplicationController
         redirect "/plants/#{@plant.id}"
     end
 
-    # if !params[:plant][:name].empty?
-    #     @plant.plants << Plant.create(name: params["plant"]["name"])
-    # end
+    
     # displays edit form based on the plant's ID
     get '/plants/:id/edit' do
-        @user = current_user
-        @plant = Plant.find_by(id: params[:id])
+        @plant = Plant.all
         erb :'/plants/edit'
     end
 
@@ -42,7 +39,11 @@ class PlantsController < ApplicationController
     patch '/plants/:id' do
         @plant = Plant.find_by(id: params[:id])
         @plant.update(params[:plant])
-        redirect "/plants/#{@plant.id}"
+        if @plant.save
+            redirect '/dashboard'
+        else
+            redirect "/plants/#{@plant.id}/edit"
+        end
     end
 
     delete '/plants/:id' do 

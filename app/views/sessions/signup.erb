@@ -1,7 +1,7 @@
 <h3>Sign Up</h3>
 
-<% if @gardener && @gardener.errors.any? %>
-    <% @gardener.errors.full_messages.each do |m| %>
+<% if @user && @user.errors.any? %>
+    <% @user.errors.full_messages.each do |m| %>
         <p class='danger'><%= m %></p>
     <% end %>
 <% end %>
