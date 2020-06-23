@@ -8,49 +8,39 @@
 <body>
     <% if logged_in? %>
         <h1>Edit a Plant</h1>
-        
-
-        <form action='/plants/<%= @plant.id %>' method='POST'>
-            <input id='hidden' type='hidden' name='_method' value='patch'>
-            
+        <% @user.plants.each do |plant| %>
+            <form class="edit-form" action="/plants/<%= @user.id %>" method="POST">
+                <br><br><br>
+                <input type='hidden' name='_method' value='patch'>
+                <label for='name'>Plant Name: </label>
+                <input type='text' id='plant_name' name='user[plants][][name]' value='<%= plant.name.capitalize %>' >
+                <br><br>
+                <label for='description'>Plant Description: </label>
+                <input type='text' id='description' name='user[plants][][description]' value='<%= plant.description %>'>
+                <br><br>
+                <label for='how_many'>How Many Plants?: </label>
+                <input type='text' id='how_many' name='user[plants][][how_many]' value='<%= plant.how_many %>'>
+                <br><br>
+                <label for='planting_schedule'>Planting Schedule: </label>
+                <input type='text' id='planting_schedule' name='user[plants][][planting_schedule]' value='<%= plant.planting_schedule %>'>
+                <br><br>
+                <label for='harvest'>When to Harvest: </label>
+                <input type='text' id='harvest' name='user[plants][][harvest]' value='<%= plant.harvest %>'>
+                <br><br>
+                <label for='location'>Plant Location: </label>
+                <input type='text' id='location' name='user[plants][][location]' value='<%= plant.location %>'>
+                <br><br>
+                <input class="submit-button" type="submit" value="Update Plant">
+            </form>
             <br>
-
-            <label for="name">Edit Plant Name:</label>
-            <input type="text" name="name" value="<%= @plant.name %>">
-        
-            <br>
-
-            <label for='description'>Plant Description: </label>
-            <input type='text' name='description' id='description' value='<%= @plant.description %>'>
-            
-            <br>
-            <label for='how_many'>How Many of Each Plant?: </label>
-            <input type='text' name='how_many' id='how_many' value='<%= @plant.how_many %>'>
-            
-            <br>
-            <label for='planting_schedule'>Planting Schedule: </label>
-            <input type='text' name='planting_schedule' id='planting_schedule' value='<%= @plant.planting_schedule %>'>
-            
-            <br>
-            <label for='harvest'>When does this plant need to be harvested?: </label>
-            <input type='text' name='harvest' id='harvest' value='<%= @plant.harvest %>'>
-            
-            <br>
-            <label for='location'>Where is this plant located?: </label>
-            <input type='text' name='location' id='location' value='<%= @plant.location %>'>
-            
-            <br>
-
-            <input type='submit' id='submit' value='Update Plant'>
-        </form>
-
-        <form action='/plants/<%= @plant.id %>' method='POST'>
-            <input id="hidden" type="hidden" name="_method" value="delete">
-            <input type="submit" id="submit" value="Delete Plant">
-        </form>
+            <form action='/plants/<%= @user.id %>' method='POST'>
+                <input id="hidden" type="hidden" name="_method" value="delete">
+                <input class="submit-button" type="submit" id="submit" value="Delete Plant">
+            </form>
+        <% end %>
 
     <% else %>
-        <h2>Please log in to edit plants.</h2>
+        <h2>Please log in to edit plant.</h2>
         <a href="/login">Log In Here</a>
     <% end %>
 </body>

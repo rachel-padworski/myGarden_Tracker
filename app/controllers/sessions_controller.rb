@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     post '/signup' do
         logged_in_redirect
-        @user = User.new(name: params[:name], username: params[:username], password: params[:password])
+        @user = User.new(name: params[:name], username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation])
         if @user.save
             session[:user_id] = @user.id 
             redirect '/dashboard'

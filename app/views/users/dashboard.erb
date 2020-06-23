@@ -13,12 +13,13 @@
         <h2>Your Plants:</h2>
         <ul>
             <% @user.plants.each do |plant| %>
-            <h3><%= plant.name.capitalize %></h3>
-            <li>Description: <%= plant.description %></li>
-            <li>Amount: <%= plant.how_many %></li>            <li>Planting Schedule: <%= plant.planting_schedule %></li>
-            <li>Harvest: <%= plant.harvest %></li>
-            <li>Location: <%= plant.location %></li>
-            <br><br>
+                <h3><%= plant.name.capitalize %></h3>
+                <li>Description: <%= plant.description %></li>
+                <li>Amount: <%= plant.how_many %></li>
+                <li>Planting Schedule: <%= plant.planting_schedule %></li>
+                <li>Harvest: <%= plant.harvest %></li>
+                <li>Location: <%= plant.location %></li>
+                <br><br>
             <% end %>
         </ul>
 

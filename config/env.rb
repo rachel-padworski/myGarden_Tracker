@@ -14,4 +14,3 @@ if ENV['SINATRA_ENV'] == 'development'
 end
 
 require_all 'app'
-# require_relative '../app/controllers/users_controller.rb'

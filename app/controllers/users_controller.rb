@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id/edit' do
+        authenticate
         @user = User.find_by(id: params[:id])
         erb :'/users/edit'
     end
@@ -16,8 +17,13 @@ class UsersController < ApplicationController
     end
 
     patch '/users/:id' do
-        @user = User.find_by(id: params[:id])
-        @user.update(name: params[:name], username: params[:username])
+        authenticate
+        @user = User.find_by(params[:user])
+
+        params[:user][:plants].each do |details|
+            Plant.update(details)
+        end
+        @plant = Plant.all
         redirect "/dashboard"
     end
 

@@ -8,23 +8,23 @@
 <body>
     <% if logged_in? %>
     <form action='/plants' method='POST'>
-        <label for='name'>Plant Name: </label>
-        <input type='text' id='name' name='name' placeholder='Plant Name'>
+        <label for='plant_name'>Plant Name: </label>
+        <input type='text' name='user[plants][][name]' placeholder='Plant Name'>
         <br><br>
         <label for='description'>Plant Description: </label>
-        <input type='text' id='description' name='description' placeholder='Plant Description'>
+        <input type='text' id='description' name='user[plants][][description]' placeholder='Plant Description'>
         <br><br>
-        <label for='how_many'>How Many Plants?: </label>
-        <input type='integer' id='how_many' name='how_many' placeholder='Amount'>
+        <label for='how_many'>How Many?: </label>
+        <input type='text' id='how_many' name='user[plants][][how_many]' placeholder='Amount'>
         <br><br>
         <label for='planting_schedule'>Planting Schedule: </label>
-        <input type='text' id='planting_schedule' name='planting_schedule' placeholder='Planting Schedule'>
+        <input type='text' id='planting_schedule' name='user[plants][][planting_schedule]' placeholder='Planting Schedule'>
         <br><br>
         <label for='harvest'>When to Harvest: </label>
-        <input type='text' id='harvest' name='harvest' placeholder='Harvest Date'>
+        <input type='text' id='harvest' name='user[plants][][harvest]' placeholder='Harvest Date'>
         <br><br>
         <label for='location'>Plant Location: </label>
-        <input type='text' id='location' name='location' placeholder='Location'>
+        <input type='text' id='location' name='user[plants][][location]' placeholder='Location'>
         <br><br>
         <input class='submit-button' type='submit' id='submit' name='submit' value='Submit'>
 

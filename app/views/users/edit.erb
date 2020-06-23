@@ -15,12 +15,12 @@
         
         <br>
 
-        <label for='name'>Edit User's Name: </label>
-        <input type='text' name='name' id='name' value='<%= @user.name %>'>
+        <label for='name'>Edit Your Name: </label>
+        <input type='text' name='user[name]' value='<%= @user.name %>'>
         <br>
 
         <label for='username'>Edit Username: </label>
-        <input type='text' name='username' id='username' value='<%= @user.username %>'>
+        <input type='text' name='user[username]' value='<%= @user.username %>'>
         <br>
         <br>
         <input class='submit-button' type='submit' id='submit' value='Update'>

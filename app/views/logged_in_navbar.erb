@@ -1,10 +1,10 @@
 
 <div class="navbar">
-    <a href="/dashboard"><img class="navbar-logo" src="plant-in-hand.png"></a>
+    <a href="/dashboard"><img class="navbar-logo" src="/plant-in-hand.png"></a>
     <a class="navbar-button" href='/dashboard'>Dashboard</a>
     <a class="navbar-button" href='/plants/new'>Add New Plant</a>
     <a class="navbar-button" href='/plants'>View Plants</a>
-    <a class="navbar-button" href='/plants/edit'>Edit a Plant</a>
+    <a class="navbar-button" href='/plants/<%=@user.id%>/edit'>Edit Plants</a>
     <a class="navbar-button" href='/users/<%=@user.id%>/edit'>Edit Profile</a>
     <a class="navbar-button" href='/plants/<%=@user.id%>'>Delete a Plant</a>
     <form class='navbar-button' action="/logout" method="POST">
