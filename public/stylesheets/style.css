@@ -16,6 +16,11 @@ ul {
   text-align: left;
 }
 
+#show-page {
+  text-align: left;
+  padding-left: 15px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;

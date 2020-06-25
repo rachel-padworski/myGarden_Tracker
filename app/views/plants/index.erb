@@ -14,8 +14,8 @@
         <% end %>
 
         <ul>
-            <% @user.plants.each do |plant| %>
-            <h3><%= plant.name.capitalize %></h3>
+            <% @plants.each do |plant| %>
+            <h3><a href="/plants/<%= plant.id %>/edit"><%= plant.name %></a></h3>
             <li>Description: <%= plant.description %></li>
             <li>Amount: <%= plant.how_many %></li>
             <li>Planting Schedule: <%= plant.planting_schedule %></li>

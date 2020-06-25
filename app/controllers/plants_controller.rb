@@ -5,7 +5,7 @@ class PlantsController < ApplicationController
     get '/plants' do 
         authenticate
         @user = current_user
-        @plant = Plant.all
+        @plants = @user.plants
         erb :'plants/index'
     end
 
@@ -20,8 +20,13 @@ class PlantsController < ApplicationController
     post '/plants' do 
         authenticate
         @user = current_user
-        @plant = Plant.create(name: params[:name], description: params[:description], how_many: params[:how_many], planting_schedule: params[:planting_schedule], harvest: params[:harvest], location: params[:location], user: current_user)
-        redirect "/plants/#{@user.id}"
+        @plant = Plant.new(name: params[:name], description: params[:description], how_many: params[:how_many], planting_schedule: params[:planting_schedule], harvest: params[:harvest], location: params[:location], user: current_user)
+        if @plant.save
+            current_user.plants << @plant 
+            redirect "/plants/#{@user.id}"
+        else 
+            erb :'/plants/new'
+        end
     end
 
     
@@ -43,23 +48,21 @@ class PlantsController < ApplicationController
 
     # modifies an existing plant based on its ID
     patch '/plants/:id' do
-        authenticate
         @user = current_user
         @plant = Plant.find_by(id: params[:id])
-        
-        
-        @plant.update(name: params[:name], description: params[:description], how_many: params[:how_many], planting_schedule: params[:planting_schedule], harvest: params[:harvest], location: params[:location])
-        if @plant.save
+        authorize(@user)
+        if @plant && @plant.update(name: params[:name], description: params[:description], how_many: params[:how_many], planting_schedule: params[:planting_schedule], harvest: params[:harvest], location: params[:location])
             redirect "/plants"
         else
-            redirect "/plants/#{@user.id}/edit"
+            erb :'/plants/edit'
         end
     end
 
     delete '/plants/:id' do 
-        authenticate
+        @user = current_user
         @plant = Plant.find_by(id: params[:id])
-        @plant.delete
-        redirect "/plants"
+        authorize(@user)
+        @plant.destroy
+        redirect '/plants'
     end
 end

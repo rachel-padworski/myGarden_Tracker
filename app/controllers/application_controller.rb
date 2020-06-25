@@ -35,5 +35,10 @@ class ApplicationController < Sinatra::Base
             redirect '/login' if !logged_in?
         end
 
+        def authorize(user)
+            authenticate 
+            redirect "/dashboard" if user != current_user
+        end
+
     end
 end
