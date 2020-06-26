@@ -8,16 +8,16 @@
 <body>
     <h1><%= @user.name.capitalize %>'s Plants</h1>
     <div id="show-page">
-    <ul>
+    
         <% @user.plants.each do |plant| %>
-            <h3><%= plant.name %></h3>
+            <h3><%= plant.name.capitalize %></h3>
             <li>Description: <%= plant.description %></li>
             <li>Amount: <%= plant.how_many %></li>
             <li>Planting Schedule: <%= plant.planting_schedule %></li>
             <li>Harvest: <%= plant.harvest %></li>
             <li>Location: <%= plant.location %></li>
        
-    </ul>
+   
         <a href="/plants/<%= plant.id %>/edit">Edit Plant</a>
         <% end %>
     </div>
